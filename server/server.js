@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 8008;
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  // context: authMiddleware,
+  context: authMiddleware,
 });
 
 app.use(express.urlencoded({ extended: true }));

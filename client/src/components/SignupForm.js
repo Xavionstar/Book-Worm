@@ -14,7 +14,7 @@ const SignupForm = () => {
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
   const [createNewUser, {error }] = useMutation(Add_User);
-  console.log(error, "error");
+  
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
