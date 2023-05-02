@@ -13,7 +13,10 @@ const SignupForm = () => {
   const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
+
+  // here I pulled in the use mutation function which connects to the mutation file and the mutation itself on the backend
   const [createNewUser, {error }] = useMutation(Add_User);
+  console.log(error, "error")
   
 
   const handleInputChange = (event) => {
@@ -32,7 +35,7 @@ const SignupForm = () => {
     }
 
     try {
-      
+      // this is the mutation function that is called when the form is submitted
 console.log(userFormData, "userFormData")
       const response = await createNewUser({
         
@@ -46,20 +49,6 @@ console.log(userFormData, "userFormData")
         
       })
       
-      // const response = await createNewUser({
-      //   variables: {
-      //     username: userFormData.username,
-      //     email: userFormData.email,
-      //     password: userFormData.password
-      //   }
-      // })
-      
-     
-
-      // if (!response.ok) {
-      //   throw new Error('something went wrong!');
-      // }
-
       const { token, user } = response;
       console.log(user);
       Auth.login(token);

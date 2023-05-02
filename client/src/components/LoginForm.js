@@ -10,6 +10,9 @@ const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
+
+  // here I pulled in the use mutation function which connects to the mutation file and the mutation itself on the backend
+
   const [userLogin, {error }] = useMutation(Login_User);
   console.log(error, "error")
   const handleInputChange = (event) => {
@@ -31,6 +34,7 @@ const LoginForm = () => {
       console.log( "userFormData")
       const response = await userLogin({
 
+        // this is the mutation function that is called when the form is submitted
         variables: {
           email: userFormData.email,
           password: userFormData.password        

@@ -8,6 +8,7 @@ const { typeDefs, resolvers } = require('./schema');
 const app = express();
 const PORT = process.env.PORT || 8008;
 
+
 const server = new ApolloServer({
   typeDefs,
   resolvers,
@@ -21,7 +22,7 @@ app.use(express.json());
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
-
+// App.use routes is commented out so that the server can use Apollo Server
 // app.use(routes);
 
 const startApolloServer = async () => {

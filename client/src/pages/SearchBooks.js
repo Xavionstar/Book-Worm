@@ -70,7 +70,7 @@ const SearchBooks = () => {
 
     try {
       
-      // console.log( "bookToSave", { bookData: { ...bookToSave }, token: token });
+      // here i converted the original saveBook method to use the graphql mutation to save it to the database
       await saveBook({
         variables: { bookData: { ...bookToSave }, token: token },
       });
